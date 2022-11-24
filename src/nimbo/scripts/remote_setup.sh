@@ -19,7 +19,7 @@ PYTHONUNBUFFERED=1
 INSTANCE_ID=$1
 JOB_CMD=$2
 
-AWS=/usr/local/bin/aws
+AWS=aws
 PROJ_DIR=/home/ubuntu/project
 CONDA_PATH=/home/ubuntu/miniconda3
 CONDASH=$CONDA_PATH/etc/profile.d/conda.sh
@@ -38,7 +38,7 @@ else
 fi
 
 ENV_FILE=local_env.yml
-ENV_NAME="$(grep 'name:' $ENV_FILE | awk '{print $2}')"
+ENV_NAME="$(grep 'name: ' $ENV_FILE | awk '{print $2}')"
 
 S3_LOG_NAME=$(date +%Y-%m-%d_%H-%M-%S).txt
 S3_LOG_PATH=$S3_RESULTS_PATH/nimbo-logs/$S3_LOG_NAME
