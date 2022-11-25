@@ -38,8 +38,7 @@ else
 fi
 
 ENV_FILE=local_env.yml
-ENV_NAME="$(grep 'name:' $ENV_FILE | awk '{print $2}')"
-# conda activate $(grep 'name:' ./project/local_env.yml | awk '{print $2}')
+ENV_NAME="$(echo -e "$(grep 'name:' $ENV_FILE | awk '{print $2}')" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
 
 S3_LOG_NAME=$(date +%Y-%m-%d_%H-%M-%S).txt
 S3_LOG_PATH=$S3_RESULTS_PATH/nimbo-logs/$S3_LOG_NAME
