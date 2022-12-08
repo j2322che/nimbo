@@ -14,6 +14,9 @@ do_cleanup () {
     fi
 }
 
+apt-get update
+apt-get install ffmpeg libsm6 libxext6 -y
+
 PYTHONUNBUFFERED=1
 
 INSTANCE_ID=$1
