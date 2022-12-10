@@ -30,8 +30,6 @@ cd $PROJ_DIR
 CONFIG=nimbo-config.yml
 source ./nimbo_vars
 
-echo "here"
-echo "${ENCRYPTION}"
 
 if [ -z "${ENCRYPTION}" ]; then
     S3CP="$AWS s3 cp"
